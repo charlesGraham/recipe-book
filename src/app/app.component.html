@@ -1,9 +1,9 @@
-<app-header-component></app-header-component>
+<app-header-component (destSelected)="onNavigate($event)"></app-header-component>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shopping-list></app-shopping-list>
+      <app-recipes *ngIf="loadedDestination === 'recipe'"></app-recipes>
+      <app-shopping-list *ngIf="loadedDestination !== 'recipe'"></app-shopping-list>
     </div>
   </div>
 </div>

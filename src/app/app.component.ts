@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cookbook';
+  public loadedDestination: string = "recipe";
+
+
+  constructor() { }
+
+  public onNavigate(dest: string): void {
+    this.loadedDestination = dest;
+  }
 }
