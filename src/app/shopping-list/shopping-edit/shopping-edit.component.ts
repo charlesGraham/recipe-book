@@ -11,6 +11,7 @@ export class ShoppingEditComponent {
   @ViewChild('amountInput') amountInputRef!: ElementRef;
 
   @Output() public ingredientAdded = new EventEmitter<Ingredient>();
+  @Output() public fieldsCleared = new EventEmitter<void>();
 
 
   constructor() { }
@@ -25,7 +26,9 @@ export class ShoppingEditComponent {
 
   public onDeleteItem(): void { }
 
-  public onClearFields(): void { }
+  public onClearFields(): void {
+    this.fieldsCleared.emit();
+  }
 
 
 }

@@ -17,4 +17,8 @@ export class ShoppingListComponent {
   public onIngredientAdded(ingredient: Ingredient): void {
     this.ingredients.push(ingredient);
   }
+
+  public onFieldsCleared(): void {
+    this.ingredients = [];
+  }
 }
