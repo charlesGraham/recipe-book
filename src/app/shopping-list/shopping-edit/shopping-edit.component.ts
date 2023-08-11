@@ -18,12 +18,19 @@ export class ShoppingEditComponent {
 
   constructor() { }
 
+  private clearInputField(): void {
+    this.nameInputRef.nativeElement.value = '';
+    this.amountInputRef.nativeElement.value = '';
+  }
+
   public onAddItem(): void {
     const ingName: string = this.nameInputRef.nativeElement.value;
     const ingAmt: number = this.amountInputRef.nativeElement.value;
 
     const newIngredient: Ingredient = new Ingredient(ingName, ingAmt);
     this.ingredientAdded.emit(newIngredient);
+
+    this.clearInputField();
   }
 
   public onDeleteItem(): void {
@@ -33,10 +40,12 @@ export class ShoppingEditComponent {
     const deletedIngredient: Ingredient = new Ingredient(ingName, ingAmt);
 
     this.ingredientDeleted.emit(deletedIngredient);
+    this.clearInputField();
   }
 
   public onClearFields(): void {
     this.fieldsCleared.emit();
+    this.clearInputField();
   }
 
 
