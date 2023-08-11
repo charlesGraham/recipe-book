@@ -11,7 +11,9 @@ export class ShoppingEditComponent {
   @ViewChild('amountInput') amountInputRef!: ElementRef;
 
   @Output() public ingredientAdded = new EventEmitter<Ingredient>();
+  @Output() public ingredientDeleted = new EventEmitter<Ingredient>();
   @Output() public fieldsCleared = new EventEmitter<void>();
+
 
 
   constructor() { }
@@ -24,7 +26,14 @@ export class ShoppingEditComponent {
     this.ingredientAdded.emit(newIngredient);
   }
 
-  public onDeleteItem(): void { }
+  public onDeleteItem(): void {
+    const ingName: string = this.nameInputRef.nativeElement.value;
+    const ingAmt: number = this.amountInputRef.nativeElement.value;
+
+    const deletedIngredient: Ingredient = new Ingredient(ingName, ingAmt);
+
+    this.ingredientDeleted.emit(deletedIngredient);
+  }
 
   public onClearFields(): void {
     this.fieldsCleared.emit();

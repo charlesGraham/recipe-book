@@ -18,6 +18,11 @@ export class ShoppingListComponent {
     this.ingredients.push(ingredient);
   }
 
+  public onIngredientDeleted(ingredient: Ingredient): void {
+    const newIngredients = this.ingredients.filter(item => item.name !== ingredient.name);
+    this.ingredients = newIngredients;
+  }
+
   public onFieldsCleared(): void {
     this.ingredients = [];
   }
