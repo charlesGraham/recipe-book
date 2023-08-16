@@ -9,4 +9,12 @@ import { Recipe } from '../recipe.model';
 export class RecipeDetailComponent {
   @Input() public recipe!: Recipe;
 
+  public isOpen: boolean = false;
+
+  constructor() { }
+
+  public onOpened(): void {
+    this.isOpen = !this.isOpen;
+  }
+
 }
